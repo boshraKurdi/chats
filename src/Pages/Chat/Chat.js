@@ -1,5 +1,5 @@
 import "./Chat.css";
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Content from "../../Components/Chat/Content/Content";
 import SideBar from "../../Components/Chat/SideBar/SideBar";
 import SearchIcon from "@mui/icons-material/Search";
@@ -7,9 +7,19 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import HorizontalSplitIcon from "@mui/icons-material/HorizontalSplit";
 import Components from "../../Style/Components/Components";
 import Image from '../../Img/about-coach.jpg'
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { ActShow } from "../../Redux/Chat/ChatSlice";
+import SkeletonLoading from "../../Components/SkeletonLoading/SkeletonLoading";
 export default function Chat() {
   const { MyComponentDivHeader } = Components();
-  // const { id } = useParams();
+  const { id } = useParams();
+  const dispatch = useDispatch()
+  const { myChat , loading3 } = useSelector((state) => state.chat)
+  useEffect(() => {
+    dispatch(ActShow(id))
+  } ,[dispatch , id])
+  console.log(myChat)
   // const { value } = useSelector((state) => state.mode);
   return (
     <main className="chat">
@@ -25,6 +35,7 @@ export default function Chat() {
               className="barsChat"
               style={{ fontSize: "3rem" }}
             />
+            <SkeletonLoading loading={loading3} type="headerChat">
               <div className="image">
                 <img
                   src={Image}
@@ -32,15 +43,16 @@ export default function Chat() {
                 />
               </div>
               <div className="details">
-                <h3>firnds name</h3>
+                <h3>{myChat[0].f_name}</h3>
                 <span>last seen 10 minutes ago</span>
               </div>
+            </SkeletonLoading>
             <div className="icons">
               <PhoneIcon />
               <SearchIcon />
             </div>
           </MyComponentDivHeader>
-          <Content id='1' />
+          <Content id={id} />
         </div>
       </section>
     </main>

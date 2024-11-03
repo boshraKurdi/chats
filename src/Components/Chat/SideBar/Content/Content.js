@@ -1,9 +1,9 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Image from '../../../../Img/about-coach.jpg'
 
 export default function Content({chat}){
     return(
-        <a href={`/services/chat/1`} className="chat-box" id="Msg">
+        <Link to={`/chats/`+chat.id} className="chat-box" id="Msg">
             <div className="chat-img">
               <img src={Image} alt="" />
             </div>
@@ -17,6 +17,6 @@ export default function Content({chat}){
                 <span>1</span>
               </div>
             </div>
-          </a>
+          </Link>
     )
 }

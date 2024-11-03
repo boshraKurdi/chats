@@ -7,7 +7,7 @@ const Chat = lazy(()=> import('../Pages/Chat/Chat'));
 const router = createBrowserRouter([
 
   {
-    path: '/chats',
+    path: '/chats/:id',
     element:  <Suspense fallback={'loading..'}><Chat /></Suspense>,
     // loader : ({params}) =>{
     //   if (!regex.test(params.id)) {

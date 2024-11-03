@@ -3,15 +3,18 @@ import axios from "axios";
 const ActGetMessages = createAsyncThunk(
     'Chat/ActGetMessages',
     async (id , thunkAPI) => {
-        const { rejectWithValue , getState } = thunkAPI;
-        const { auth } = getState()
+        const { rejectWithValue } = thunkAPI;
         try {
-            const response = await axios.get(`chat/messages/${id}` , {
-                headers: {
-                  Authorization: 'Bearer ' + auth.token
-              }
+            const response = await axios.get(`https://boshrakurdi.github.io/json/message.json` , {
               });
-            return response.data   
+              const newData = response.data.message.filter((d) =>{
+                if (d.chat_id == id) {
+                    return true
+                }else{
+                    return false
+                }
+              })
+            return newData
         } catch (error) {
             if (axios.isAxiosError(error)) {
                 return rejectWithValue(error.response?.data.message || error.message);   

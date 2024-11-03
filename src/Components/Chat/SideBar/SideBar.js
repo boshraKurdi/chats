@@ -8,19 +8,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { ActGetChat } from "../../../Redux/Chat/ChatSlice";
 import Content from "./Content/Content";
+import SkeletonLoading from "../../SkeletonLoading/SkeletonLoading";
 export default function SideBar() {
   const { MyComponentDivHeader } = Components();
   const dispatch = useDispatch()
   const { myChats , loading } = useSelector((state) => state.chat)
-  const newData = myChats.chat.map((chat) => {
+  const newData = myChats.chat.length > 0 && myChats.chat.map((chat) => {
     return(
       <Content key={chat.id} chat={chat} />
     )
   })
+  console.log(myChats)
   useEffect(()=>{
     dispatch(ActGetChat());
   } ,[dispatch])
-  console.log(loading)
   return (
     <MyComponentDivHeader className="right-side">
       <MyComponentDivHeader className="header-container">
@@ -36,7 +37,9 @@ export default function SideBar() {
       </MyComponentDivHeader>
       <div className="body-container">
         <div className="chat-list">
-            {loading === "pending" ? 'loading..' : newData}
+        <SkeletonLoading loading={loading} type="chat">
+          {newData}
+        </SkeletonLoading>
         </div>
       </div>
       <div className="pen">
