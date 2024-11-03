@@ -1,0 +1,31 @@
+:root {
+    --mainColor: #3390ec;
+    --whiteColor: #ffffff;
+    --blackColor: #000000;
+    --borderColor: #dfe1e5;
+    --greenColor: #0ac630;
+    --unreadMessage: #c4c9cc;
+    --grayColor: #707579;
+}
+.chat svg{
+    font-size: 2rem;
+}
+
+@media (min-width: 1200px) {
+
+    .right-side{
+      display: block !important;
+    }
+    .barsChat{
+      display: none !important;
+    }
+    .chat_content {
+      width: 70% !important;
+      margin-left: auto;
+    }
+    .chat_content .chat_container .content-header{
+      width: 70% !important;
+      margin-left: auto;
+    }
+  
+  }

@@ -1,8 +1,9 @@
 import './App.css';
+import AppRouter from './Routes/AppRouter';
 function App() {
   return (
     <div className="App">
-     this is project chats
+     <AppRouter />
     </div>
   );
 }
