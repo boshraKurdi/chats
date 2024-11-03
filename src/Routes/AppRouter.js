@@ -2,7 +2,6 @@ import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-const regex = /^[0-9]+$/;
 const Chat = lazy(()=> import('../Pages/Chat/Chat'));
 const router = createBrowserRouter([
 

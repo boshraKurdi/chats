@@ -18,8 +18,6 @@ export default function Chat() {
   useEffect(() => {
     dispatch(ActShow(params))
   } ,[dispatch , params])
-
-  console.log(params)
   // const { value } = useSelector((state) => state.mode);
   return (
     <main className="chat">
@@ -43,7 +41,7 @@ export default function Chat() {
                 />
               </div>
               <div className="details">
-                <h3>{myChat[0].f_name}</h3>
+                <h3>{loading3 === 'succeeded' && myChat[0].f_name}</h3>
                 <span>last seen 10 minutes ago</span>
               </div>
             </SkeletonLoading>

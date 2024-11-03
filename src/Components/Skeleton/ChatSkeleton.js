@@ -6,7 +6,7 @@ export default function ChatSkeleton() {
     .fill(0)
     .map((_, index) => {
       return (
-        <div style={{ display: "flex", alignItems: "center" , marginLeft: '1rem' }}>
+        <div key={index} style={{ display: "flex", alignItems: "center" , marginLeft: '1rem' }}>
           <Stack
             spacing={1}
             style={{

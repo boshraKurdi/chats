@@ -29,7 +29,7 @@ export const chatSlice = createSlice({
     })
     builder.addCase(ActGetChat.fulfilled , (state , action) => {
       state.loading = 'succeeded' 
-      state.myChats = action.payload
+      state.myChats = action.payload.chat
     })
     builder.addCase(ActGetChat.rejected , (state , action) => {
       state.loading = 'failed' 

@@ -15,7 +15,7 @@ export default function Content({id}) {
   const endRef = useRef(null);
   const { MyComponentDivHeader } = Components();
   // const { value } = useSelector((state) => state.mode);
-  const { register } = useForm();
+  const { register , handleSubmit } = useForm();
   const dispatch = useDispatch();
   const { messages, loading2 } = useSelector((state) => state.chat);
   useEffect(() => {
@@ -24,14 +24,17 @@ export default function Content({id}) {
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
   }, []);
-  let newData = messages.map((message) => {
+  let newData = (loading2 === 'succeeded') && messages.map((message) => {
     return (
-      <div className={message.is_f ? "chat-msg user light" : "chat-msg light"}>
+      <div key={message.id} className={message.is_f ? "chat-msg user light" : "chat-msg light"}>
         <p>{message.text}</p>
         <span className="time">06:04 PM</span>
       </div>
     );
   });
+  const HandelMessage = async (data) => {
+   console.log('store')
+  }
   return (
     <>
       {loading2 === "pending" ? (
@@ -41,11 +44,14 @@ export default function Content({id}) {
           <div className="chat-container">{newData}</div>
           <div ref={endRef}></div>
           <div className="message-box">
-            <form style={{ display: "flex", alignItems: "center" }}>
+            <form onSubmit={handleSubmit(HandelMessage)} style={{ display: "flex", alignItems: "center" }}>
               <MyComponentDivHeader className="message-content">
                 <SentimentSatisfiedAltIcon />
                 <input type="text" name="text" {...register("text")} />
-                <input type="hidden" name="id" {...register("id")} />
+                <input type="hidden" value={id} name="chat_id" {...register("chat_id")} />
+                <input type="hidden" value={'0'} name="is_f" {...register("is_f")} />
+                <input type="hidden" value={"10"} name="id" {...register("id")} />
+                <input type="hidden" value={'2'} name="f_id" {...register("f_id")} />
                 <AttachFileIcon />
                 <KeyboardVoiceIcon />
               </MyComponentDivHeader>
