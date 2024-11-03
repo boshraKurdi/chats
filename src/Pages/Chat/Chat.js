@@ -1,5 +1,4 @@
 import "./Chat.css";
-import { useParams } from "react-router-dom";
 import Content from "../../Components/Chat/Content/Content";
 import SideBar from "../../Components/Chat/SideBar/SideBar";
 import SearchIcon from "@mui/icons-material/Search";
@@ -13,13 +12,14 @@ import { ActShow } from "../../Redux/Chat/ChatSlice";
 import SkeletonLoading from "../../Components/SkeletonLoading/SkeletonLoading";
 export default function Chat() {
   const { MyComponentDivHeader } = Components();
-  const { id } = useParams();
+  const { params } = useSelector((state)=> state.mode)
   const dispatch = useDispatch()
   const { myChat , loading3 } = useSelector((state) => state.chat)
   useEffect(() => {
-    dispatch(ActShow(id))
-  } ,[dispatch , id])
-  console.log(myChat)
+    dispatch(ActShow(params))
+  } ,[dispatch , params])
+
+  console.log(params)
   // const { value } = useSelector((state) => state.mode);
   return (
     <main className="chat">
@@ -52,7 +52,7 @@ export default function Chat() {
               <SearchIcon />
             </div>
           </MyComponentDivHeader>
-          <Content id={id} />
+          <Content id={params} />
         </div>
       </section>
     </main>

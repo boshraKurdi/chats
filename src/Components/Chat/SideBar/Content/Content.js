@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
 import Image from '../../../../Img/about-coach.jpg'
+import { useDispatch } from "react-redux";
+import { SetParams } from "../../../../Redux/Mode/ModeSlice";
 
 export default function Content({chat}){
+  const dispatch = useDispatch()
     return(
-        <Link to={`/chats/`+chat.id} className="chat-box" id="Msg">
+        <div onClick={()=>{dispatch(SetParams(chat.id))}} className="chat-box" id="Msg">
             <div className="chat-img">
               <img src={Image} alt="" />
             </div>
@@ -17,6 +19,6 @@ export default function Content({chat}){
                 <span>1</span>
               </div>
             </div>
-          </Link>
+          </div>
     )
 }
