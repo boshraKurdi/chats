@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/chats/static/css/main.1bb6d072.css",
-    "main.js": "/chats/static/js/main.d99bf2c6.js",
+    "main.js": "/chats/static/js/main.10ef6374.js",
     "static/css/137.fe85dac8.chunk.css": "/chats/static/css/137.fe85dac8.chunk.css",
-    "static/js/137.86f08e5b.chunk.js": "/chats/static/js/137.86f08e5b.chunk.js",
+    "static/js/137.8b80e687.chunk.js": "/chats/static/js/137.8b80e687.chunk.js",
     "static/js/453.b8fc5404.chunk.js": "/chats/static/js/453.b8fc5404.chunk.js",
     "static/js/392.086832cc.chunk.js": "/chats/static/js/392.086832cc.chunk.js",
     "static/media/about-coach.jpg": "/chats/static/media/about-coach.dff9558d0b5588f14857.jpg",
@@ -11,14 +11,14 @@
     "static/media/pattern.svg": "/chats/static/media/pattern.b21da31ad38b95445a80.svg",
     "index.html": "/chats/index.html",
     "main.1bb6d072.css.map": "/chats/static/css/main.1bb6d072.css.map",
-    "main.d99bf2c6.js.map": "/chats/static/js/main.d99bf2c6.js.map",
+    "main.10ef6374.js.map": "/chats/static/js/main.10ef6374.js.map",
     "137.fe85dac8.chunk.css.map": "/chats/static/css/137.fe85dac8.chunk.css.map",
-    "137.86f08e5b.chunk.js.map": "/chats/static/js/137.86f08e5b.chunk.js.map",
+    "137.8b80e687.chunk.js.map": "/chats/static/js/137.8b80e687.chunk.js.map",
     "453.b8fc5404.chunk.js.map": "/chats/static/js/453.b8fc5404.chunk.js.map",
     "392.086832cc.chunk.js.map": "/chats/static/js/392.086832cc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1bb6d072.css",
-    "static/js/main.d99bf2c6.js"
+    "static/js/main.10ef6374.js"
   ]
 }
