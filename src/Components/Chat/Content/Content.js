@@ -24,7 +24,7 @@ export default function Content({id}) {
   }, []);
   let newData = messages.map((message) => {
     return (
-      <div key={message.id} className={message.is_f ? (value === 'light' ? "chat-msg light" : 'chat-msg dark') : (value === 'light' ? "chat-msg user light" : 'chat-msg user dark')}>
+      <div key={message.id} className={message.is_f ? (value === 'light' ? "chat-msg user light" : 'chat-msg user dark') : (value === 'light' ? "chat-msg light" : 'chat-msg dark')}>
         <p>{message.text}</p>
         <span className="time">06:04 PM</span>
       </div>
