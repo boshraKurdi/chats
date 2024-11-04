@@ -3,12 +3,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { useSelector } from "react-redux";
+import Loading from "../Components/Loading/Loading";
 const Chat = lazy(()=> import('../Pages/Chat/Chat'));
 const router = createBrowserRouter([
 
   {
     path: '/chats',
-    element:  <Suspense fallback={'loading..'}><Chat /></Suspense>,
+    element:  <Suspense fallback={<Loading />}><Chat /></Suspense>,
     // loader : ({params}) =>{
     //   if (!regex.test(params.id)) {
     //     throw new Response("bad request" , {

@@ -6,13 +6,11 @@
     z-index: 999;
     min-height: 100vh;
     display: none;
-    transition: 1s all;
     box-shadow: 0 .1rem .1rem .1rem rgba(0 0 0 / .05);
 }
 .right-side.open{
     display: block;
     transform: translateX(0);
-    transition: 1s all;
 }
 .before{
     display: block;
