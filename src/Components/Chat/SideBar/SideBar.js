@@ -15,7 +15,7 @@ export default function SideBar() {
   const dispatch = useDispatch()
   const { myChats , loading } = useSelector((state) => state.chat)
 
-  const newData = (loading === 'succeeded') && myChats.map((chat) => {
+  const newData = myChats.map((chat) => {
     return(
       <Content key={chat.id} chat={chat} />
     )

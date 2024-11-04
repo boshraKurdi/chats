@@ -24,7 +24,7 @@ export default function Content({id}) {
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
   }, []);
-  let newData = (loading2 === 'succeeded') && messages.map((message) => {
+  let newData = messages.map((message) => {
     return (
       <div key={message.id} className={message.is_f ? "chat-msg user light" : "chat-msg light"}>
         <p>{message.text}</p>
