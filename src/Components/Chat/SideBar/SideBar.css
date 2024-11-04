@@ -27,15 +27,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 4rem;
-    height: 4rem;
+    padding: 1rem;
     border-radius: 50%;
     cursor: pointer;
     transform: all .3s ease;
 }
 
 .right-side .chat_header .toggle-button:hover {
-    background-color: #f5f5f5;
+    background: var(--coquelicot_10);
 }
 
 .right-side .chat_header .toggle-button i {

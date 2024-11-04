@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import { useSelector } from "react-redux";
 const Chat = lazy(()=> import('../Pages/Chat/Chat'));
 const router = createBrowserRouter([
 
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
   },
 ]);
 export default function AppRouter() {
-  const value = 'light'
+  const { value } = useSelector((state) => state.mode);
   const darkTheme = createTheme({
     palette: {
       mode: value,
@@ -47,7 +48,7 @@ export default function AppRouter() {
             },
             primary: {
               bg:"hsl(210, 26%, 11%)",
-              main: "hsl(210, 26%, 11%)",
+              main: "hsl(210deg 27.18% 14.1%)",
               light: "hsl(210, 26%, 11%)",
               contrastText: "hsl(214, 15%, 62%)",
               title: "#fff",

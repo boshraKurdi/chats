@@ -18,13 +18,13 @@ export default function Chat() {
   useEffect(() => {
     dispatch(ActShow(params))
   } ,[dispatch , params])
-  // const { value } = useSelector((state) => state.mode);
+  const { value } = useSelector((state) => state.mode);
   return (
     <main className="chat">
       <SideBar />
       <section
         className={
-          "light" === "light" ? "chat_content light" : "chat_content dark"
+          value === "light" ? "chat_content light" : "chat_content dark"
         }
       >
         <div className="chat_container" id="chatBox">

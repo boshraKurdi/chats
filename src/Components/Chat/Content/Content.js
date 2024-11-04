@@ -14,7 +14,7 @@ import LoadingPage from "../../LoadingPage/LoadingPage";
 export default function Content({id}) {
   const endRef = useRef(null);
   const { MyComponentDivHeader } = Components();
-  // const { value } = useSelector((state) => state.mode);
+  const { value } = useSelector((state) => state.mode);
   const { register , handleSubmit } = useForm();
   const dispatch = useDispatch();
   const { messages, loading2 } = useSelector((state) => state.chat);
@@ -26,7 +26,7 @@ export default function Content({id}) {
   }, []);
   let newData = messages.map((message) => {
     return (
-      <div key={message.id} className={message.is_f ? "chat-msg user light" : "chat-msg light"}>
+      <div key={message.id} className={message.is_f ? (value === 'light' ? "chat-msg user light" : 'chat-msg user dark') : (value === 'light' ? "chat-msg light" : 'chat-msg dark')}>
         <p>{message.text}</p>
         <span className="time">06:04 PM</span>
       </div>
