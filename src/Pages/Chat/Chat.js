@@ -41,7 +41,7 @@ export default function Chat() {
                 />
               </div>
               <div className="details">
-                {/* <h3>{myChat[0].f_name}</h3> */}
+                <h3>{myChat.f_name}</h3>
                 <span>last seen 10 minutes ago</span>
               </div>
             </SkeletonLoading>

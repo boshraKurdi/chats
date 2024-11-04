@@ -14,7 +14,7 @@ const ActShow = createAsyncThunk(
                     return false
                 }
               })
-            return newData   
+            return newData[0]   
         } catch (error) {
             if (axios.isAxiosError(error)) {
                 return rejectWithValue(error.response?.data.message || error.message);   

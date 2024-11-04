@@ -5,7 +5,7 @@ import ActShow from './Act/ActShow'
 const initialState = {
   myChats: [{ "id": "", "user_id": '', "f_id": '' , "lastMessage": "" , "f_name": "" }] ,
   messages: [{ "id": "", "chat_id": '' , "is_f": '', "f_id": '' , "text": "" }] ,
-  myChat: [{ "id": "", "user_id": '', "f_id": '' , "lastMessage": "" , "f_name": "" }],
+  myChat: { "id": "", "user_id": '', "f_id": '' , "lastMessage": "" , "f_name": "" },
   loading: 'idle',
   loading2: 'idle' ,
   loading3: 'idle' ,
