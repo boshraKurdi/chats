@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { ActShow } from "../../Redux/Chat/ChatSlice";
 import SkeletonLoading from "../../Components/SkeletonLoading/SkeletonLoading";
+import { SetOpen } from "../../Redux/Mode/ModeSlice";
 export default function Chat() {
   const { MyComponentDivHeader } = Components();
   const { params } = useSelector((state)=> state.mode)
@@ -31,6 +32,7 @@ export default function Chat() {
           <MyComponentDivHeader className="content-header">
             <HorizontalSplitIcon
               className="barsChat"
+              onClick={()=>{dispatch(SetOpen())}}
               style={{ fontSize: "3rem" }}
             />
             <SkeletonLoading loading={loading3} type="headerChat">

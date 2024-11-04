@@ -10,13 +10,14 @@ import Content from "./Content/Content";
 import SkeletonLoading from "../../SkeletonLoading/SkeletonLoading";
 import BrightnessMediumIcon from '@mui/icons-material/BrightnessMedium';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
-import { SetMode } from "../../../Redux/Mode/ModeSlice";
+import { SetMode, SetOpen } from "../../../Redux/Mode/ModeSlice";
+import CloseIcon from '@mui/icons-material/Close';
 export default function SideBar() {
   const [ text , setText] = useState("")
   const { MyComponentDivHeader } = Components();
   const dispatch = useDispatch()
   const { myChats , loading } = useSelector((state) => state.chat)
-  const { value } = useSelector((state)  => state.mode)
+  const { value , open } = useSelector((state)  => state.mode)
   const newData = myChats.map((chat) => {
     return(
       <Content key={chat.id} chat={chat} />
@@ -30,7 +31,8 @@ export default function SideBar() {
   }
   const modeValue = (value === 'light') ? 'dark' : 'light'
   return (
-    <MyComponentDivHeader className="right-side">
+    <MyComponentDivHeader className={open ? "right-side open" : 'right-side'}>
+      <div className="before"></div>
       <MyComponentDivHeader className="header-container">
         <div className="chat_header">
           <div className="toggle-button" onClick={()=>{dispatch(SetMode(modeValue))}}>
@@ -43,6 +45,7 @@ export default function SideBar() {
               HandelSearch(text)
             }} type="text" placeholder="Search" />
           </div>
+          <CloseIcon className="close" onClick={()=>{dispatch(SetOpen())}}/>
         </div>
       </MyComponentDivHeader>
       <div className="body-container">
