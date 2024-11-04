@@ -1,12 +1,12 @@
 import Image from '../../../../Img/about-coach.jpg'
 import { useDispatch } from "react-redux";
-import { SetParams } from "../../../../Redux/Mode/ModeSlice";
+import { SetOpenClose, SetParams } from "../../../../Redux/Mode/ModeSlice";
 import { memo } from 'react';
 
 const Content = memo(({chat})=>{
   const dispatch = useDispatch()
     return(
-        <div onClick={()=>{dispatch(SetParams(chat.id))}} className="chat-box" id="Msg">
+        <div onClick={()=>{dispatch(SetParams(chat.id));dispatch(SetOpenClose())}} className="chat-box" id="Msg">
             <div className="chat-img">
               <img src={Image} alt="" />
             </div>

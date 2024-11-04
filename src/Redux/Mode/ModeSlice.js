@@ -16,7 +16,9 @@ export const modeSlice = createSlice({
     },
     SetOpen : (state , action) => {
       state.open = !state.open
-      state.message = action.payload
+    },
+    SetOpenClose : (state , action) => {
+      state.open = false
     },
     SetParams : (state , action) => {
       state.params = action.payload
@@ -25,5 +27,5 @@ export const modeSlice = createSlice({
  
 })
 // Action creators are generated for each case reducer function
-export const { SetMode , SetOpen , SetParams } = modeSlice.actions
+export const { SetMode , SetOpen , SetParams  , SetOpenClose} = modeSlice.actions
 export default modeSlice.reducer
