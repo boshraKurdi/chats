@@ -347,3 +347,11 @@
 }
 }
 
+@media(max-width: 450px){
+  .chat_content .chat_container .message-box {
+    padding: 1rem !important;
+}
+.chat_content .chat_container .content-header .details span {
+  font-size: 1rem !important;
+}
+}

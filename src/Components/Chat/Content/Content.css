@@ -148,9 +148,9 @@
     bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
-    align-items: center;
     gap: 2rem;
+    width: 100%;
+    padding: 1rem 10rem;
 }
 
 .chat_content .chat_container .message-box .message-content {
@@ -160,7 +160,7 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    min-width: 60rem;
+    width: 100%;
 }
 
 .chat_content .chat_container .message-box .message-content i {
