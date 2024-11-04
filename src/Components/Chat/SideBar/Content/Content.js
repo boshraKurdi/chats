@@ -1,8 +1,9 @@
 import Image from '../../../../Img/about-coach.jpg'
 import { useDispatch } from "react-redux";
 import { SetParams } from "../../../../Redux/Mode/ModeSlice";
+import { memo } from 'react';
 
-export default function Content({chat}){
+const Content = memo(({chat})=>{
   const dispatch = useDispatch()
     return(
         <div onClick={()=>{dispatch(SetParams(chat.id))}} className="chat-box" id="Msg">
@@ -21,4 +22,5 @@ export default function Content({chat}){
             </div>
           </div>
     )
-}
+})
+export default Content

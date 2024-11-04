@@ -1,21 +1,19 @@
 import "./Content.css";
-import { useForm } from "react-hook-form";
 import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import SendIcon from "@mui/icons-material/Send";
-import { useEffect, useRef } from "react";
-
-import Components from "../../../Style/Components/Components";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ActGetMessages } from "../../../Redux/Chat/ChatSlice";
+import { ActGetMessages, addMessage } from "../../../Redux/Chat/ChatSlice";
 import LoadingPage from "../../LoadingPage/LoadingPage";
+import { useTheme } from "@emotion/react";
 
 export default function Content({id}) {
+  const theme = useTheme()
   const endRef = useRef(null);
-  const { MyComponentDivHeader } = Components();
+  const [form , setForm] = useState({ id: 10, chat_id: id , is_f: 0, f_id: 2 , text: "" })
   const { value } = useSelector((state) => state.mode);
-  const { register , handleSubmit } = useForm();
   const dispatch = useDispatch();
   const { messages, loading2 } = useSelector((state) => state.chat);
   useEffect(() => {
@@ -26,14 +24,16 @@ export default function Content({id}) {
   }, []);
   let newData = messages.map((message) => {
     return (
-      <div key={message.id} className={message.is_f ? (value === 'light' ? "chat-msg user light" : 'chat-msg user dark') : (value === 'light' ? "chat-msg light" : 'chat-msg dark')}>
+      <div key={message.id} className={message.is_f ? (value === 'light' ? "chat-msg light" : 'chat-msg dark') : (value === 'light' ? "chat-msg user light" : 'chat-msg user dark')}>
         <p>{message.text}</p>
         <span className="time">06:04 PM</span>
       </div>
     );
   });
-  const HandelMessage = async (data) => {
-   console.log('store')
+  function HandelMessage(e ,data){
+    e.preventDefault()
+    dispatch(addMessage(data));
+    setForm({...form , text: ''})
   }
   return (
     <>
@@ -44,18 +44,14 @@ export default function Content({id}) {
           <div className="chat-container">{newData}</div>
           <div ref={endRef}></div>
           <div className="message-box">
-            <form onSubmit={handleSubmit(HandelMessage)} style={{ display: "flex", alignItems: "center" }}>
-              <MyComponentDivHeader className="message-content">
+            <form style={{ display: "flex", alignItems: "center" }}>
+              <div style={{backgroundColor: theme.palette.primary.main}} className="message-content">
                 <SentimentSatisfiedAltIcon />
-                <input type="text" name="text" {...register("text")} />
-                <input type="hidden" value={id} name="chat_id" {...register("chat_id")} />
-                <input type="hidden" value={'0'} name="is_f" {...register("is_f")} />
-                <input type="hidden" value={"10"} name="id" {...register("id")} />
-                <input type="hidden" value={'2'} name="f_id" {...register("f_id")} />
+                <input type="text" name="text" value={form.text} onChange={(e)=>{setForm({...form , text:e.target.value})}} />
                 <AttachFileIcon />
                 <KeyboardVoiceIcon />
-              </MyComponentDivHeader>
-              <button style={{ marginLeft: "1rem" }} className="micro">
+              </div>
+              <button onClick={(e)=>{HandelMessage(e , form)}} style={{ marginLeft: "1rem" }} className="micro">
                 <SendIcon />
               </button>
             </form>

@@ -15,12 +15,17 @@ const initialState = {
 export const chatSlice = createSlice({
   name: 'chat',
   initialState,
+  
   reducers: {
     CleanUp: (state) => {
       state.loading = 'idle'
       state.error = null
     } ,
+    addMessage: (state, action) => {
+      state.messages.push(action.payload);
+    },
   } ,
+  
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
     builder.addCase(ActGetChat.pending , (state) => {
@@ -71,5 +76,5 @@ export const chatSlice = createSlice({
 })
 // Action creators are generated for each case reducer function
 export { ActGetChat , ActGetMessages , ActShow }
-export const { CleanUp } = chatSlice.actions
+export const { CleanUp , addMessage } = chatSlice.actions
 export default chatSlice.reducer
