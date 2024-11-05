@@ -142,7 +142,11 @@
     margin-top: 1rem;
     opacity: .7;
 }
-
+.piker{
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+}
 .chat_content .chat_container .message-box {
     position: absolute;
     bottom: 2rem;

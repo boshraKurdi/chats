@@ -3,6 +3,7 @@ import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import SendIcon from "@mui/icons-material/Send";
+import EmojiPicker from 'emoji-picker-react';
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ActGetMessages, addMessage } from "../../../Redux/Chat/ChatSlice";
@@ -12,6 +13,7 @@ import { useTheme } from "@emotion/react";
 export default function Content({id}) {
   const theme = useTheme()
   const endRef = useRef(null);
+  const [active , setActive] = useState(false)
   const [form , setForm] = useState({ id: 10, chat_id: id , is_f: 0, f_id: 2 , text: "" })
   const { value } = useSelector((state) => state.mode);
   const dispatch = useDispatch();
@@ -35,6 +37,15 @@ export default function Content({id}) {
     dispatch(addMessage(data));
     setForm({...form , text: ''})
   }
+  function HandelEomji(e){
+    setForm(prevForm => ({
+      ...prevForm,
+      text: prevForm.text + e.emoji
+    }));
+    
+    setActive(false)
+
+}
   return (
     <>
       {loading2 === "pending" ? (
@@ -46,7 +57,12 @@ export default function Content({id}) {
           <div className="message-box">
             <form style={{ display: "flex", alignItems: "center" }}>
               <div style={{backgroundColor: theme.palette.primary.main}} className="message-content">
-                <SentimentSatisfiedAltIcon />
+              <div className='emoji'>
+                <SentimentSatisfiedAltIcon className='emo' onClick={(e)=>{setActive(prev => !prev)}} />
+                <div className='piker'>
+                  <EmojiPicker style={{height: '350px' ,width: '300px'}} open={active} onEmojiClick={HandelEomji} />
+                </div>
+              </div>
                 <input type="text" name="text" placeholder="message" value={form.text} onChange={(e)=>{setForm({...form , text:e.target.value})}} />
                 <AttachFileIcon />
                 <KeyboardVoiceIcon />
