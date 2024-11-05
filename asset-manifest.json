@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/chats/static/css/main.1bb6d072.css",
+    "main.css": "/chats/static/css/main.23ea1561.css",
     "main.js": "/chats/static/js/main.3c23c6aa.js",
     "static/css/137.b1c28aa2.chunk.css": "/chats/static/css/137.b1c28aa2.chunk.css",
     "static/js/137.446946c2.chunk.js": "/chats/static/js/137.446946c2.chunk.js",
@@ -10,7 +10,7 @@
     "static/media/telegram_dark.png": "/chats/static/media/telegram_dark.483f8e897c9c5a9d1fe3.png",
     "static/media/pattern.svg": "/chats/static/media/pattern.b21da31ad38b95445a80.svg",
     "index.html": "/chats/index.html",
-    "main.1bb6d072.css.map": "/chats/static/css/main.1bb6d072.css.map",
+    "main.23ea1561.css.map": "/chats/static/css/main.23ea1561.css.map",
     "main.3c23c6aa.js.map": "/chats/static/js/main.3c23c6aa.js.map",
     "137.b1c28aa2.chunk.css.map": "/chats/static/css/137.b1c28aa2.chunk.css.map",
     "137.446946c2.chunk.js.map": "/chats/static/js/137.446946c2.chunk.js.map",
@@ -18,7 +18,7 @@
     "392.086832cc.chunk.js.map": "/chats/static/js/392.086832cc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1bb6d072.css",
+    "static/css/main.23ea1561.css",
     "static/js/main.3c23c6aa.js"
   ]
 }
