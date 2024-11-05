@@ -9,6 +9,7 @@
 }
 .chat svg{
     font-size: 2rem;
+    cursor: pointer;
 }
 
 @media (min-width: 1200px) {
