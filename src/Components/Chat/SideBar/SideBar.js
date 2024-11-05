@@ -43,7 +43,7 @@ const SideBar = memo(()=> {
           <div className="toggle-button" onClick={()=>{dispatch(SetMode(modeValue))}}>
             {value === 'light' ? <BrightnessMediumIcon /> : <Brightness4Icon />}
           </div>
-          <div className="search-box">
+          <div className={value === 'dark' ? "dark search-box" : "light search-box"}>
             <SearchIcon />
             <input value={searchTerm} onChange={handleSearchChange} type="text" placeholder="Search" />
           </div>

@@ -86,8 +86,13 @@
     border: none;
     outline: none;
     width: 100%;
-    color: #fff;
     padding: 2px;
+}
+.right-side .chat_header .search-box.dark input{
+    color: #fff;
+}
+.right-side .chat_header .search-box.light input{
+    color: #000;
 }
 
 .right-side .chat_header .search-box input::placeholder {
