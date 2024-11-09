@@ -11,22 +11,3 @@
     font-size: 2rem;
     cursor: pointer;
 }
-
-@media (min-width: 1200px) {
-
-    .right-side{
-      display: block !important;
-    }
-    .barsChat{
-      display: none !important;
-    }
-    .chat_content {
-      width: 70% !important;
-      margin-left: auto;
-    }
-    .chat_content .chat_container .content-header{
-      width: 70% !important;
-      margin-left: auto;
-    }
-  
-  }

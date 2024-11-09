@@ -1,8 +1,7 @@
 .right-side {
     position: fixed;
-    max-width: 42rem;
     min-width: 25rem;
-    width: 40%;
+    width: 30%;
     z-index: 999;
     min-height: 100vh;
     display: none;
@@ -15,7 +14,7 @@
 .before{
     display: block;
     position: absolute;
-    width: 180%;
+    width: 250%;
     height: 100%;
     top: 0;
     left: 100%;

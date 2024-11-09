@@ -267,7 +267,7 @@
   } */
 
 }
-@media (min-width: 1200px) {
+@media (min-width: 1350px) {
   /**
      * CUSTOM PROPERTY
      */
@@ -318,10 +318,27 @@
   /**
      * HEADER
      */
-
+     .chat_content .chat_container .message-box{
+      position: absolute !important;
+     }
   .header .container {
     padding-inline: 0;
   }
+  .right-side{
+    display: block !important;
+  }
+  .barsChat{
+    display: none !important;
+  }
+  .chat_content {
+    width: 70% !important;
+    margin-left: auto;
+  }
+  .chat_content .chat_container .content-header{
+    width: 70% !important;
+    margin-left: auto;
+  }
+
 
   .right-side{
     display: block !important;
