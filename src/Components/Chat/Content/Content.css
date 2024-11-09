@@ -1,7 +1,7 @@
 .chat_content {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 50vh;
 }
 .chat_content.light{
     background: linear-gradient(132deg, #d5d88d 0%, #88b884 100%);
