@@ -20,6 +20,7 @@ const router = createBrowserRouter([
     //   return true;
     // }
   },
+  
 ]);
 export default function AppRouter() {
   const { value } = useSelector((state) => state.mode);

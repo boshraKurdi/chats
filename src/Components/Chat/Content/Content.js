@@ -12,18 +12,15 @@ import { useTheme } from "@emotion/react";
 
 export default function Content({id}) {
   const theme = useTheme()
-  const endRef = useRef(null);
   const [active , setActive] = useState(false)
   const [form , setForm] = useState({ id: 10, chat_id: id , is_f: 0, f_id: 2 , text: "" })
   const { value } = useSelector((state) => state.mode);
   const dispatch = useDispatch();
   const { messages, loading2 } = useSelector((state) => state.chat);
+  const lastMessageRef = useRef(null);
   useEffect(() => {
     dispatch(ActGetMessages(id));
   }, [dispatch , id]);
-  useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, []);
   let newData = messages.map((message) => {
     return (
       <div key={message.id} className={message.is_f ? (value === 'light' ? "chat-msg light" : 'chat-msg dark') : (value === 'light' ? "chat-msg user light" : 'chat-msg user dark')}>
@@ -32,6 +29,12 @@ export default function Content({id}) {
       </div>
     );
   });
+
+useEffect(() => {
+  if (lastMessageRef.current) {
+    lastMessageRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+}, [newData]);
   function HandelMessage(e ,data){
     e.preventDefault()
     dispatch(addMessage(data));
@@ -52,8 +55,13 @@ export default function Content({id}) {
         <LoadingPage />
       ) : (
         <>
-          <div className="chat-container">{newData}</div>
-          <div ref={endRef}></div>
+          <div className="chat-container">
+          {newData.map((item, index) => (
+            <div key={index} ref={index === newData.length - 1 ? lastMessageRef : null}>
+              {item}
+            </div>
+          ))}
+            </div>
           <div className="message-box">
             <form style={{ display: "flex", alignItems: "center" }}>
               <div style={{backgroundColor: theme.palette.primary.main}} className="message-content">

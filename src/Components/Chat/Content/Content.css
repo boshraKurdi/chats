@@ -29,6 +29,8 @@
     transition: all .5s ease;
     margin-bottom: 10rem;
     margin-top: 8rem;
+    height: 68vh;
+    overflow: auto;
 }
 
 .chat_content .chat_container.active {
@@ -100,6 +102,9 @@
 .chat_content .chat_container .chat-container {
     position: relative;
     padding:0 2rem;
+    overflow: auto;
+    height: 100%;
+    
 }
 
 .chat_content .chat_container .chat-msg {
